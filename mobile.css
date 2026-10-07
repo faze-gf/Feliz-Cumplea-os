@@ -1,296 +1,124 @@
-/* =====================================================
-   CONFIGURACIÓN GENERAL PARA MÓVILES
-   ===================================================== */
-
+/*Evitamos el Resaltado Azul de los Moviles*/
 * {
   -webkit-tap-highlight-color: transparent;
   outline: none;
-  user-select: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
+  user-select: none;         /* Evita seleccionar texto al tocar */
+  -webkit-user-select: none; /* Para Safari/iOS */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge */
 }
 
-/* Evita desplazamiento horizontal */
-html,
-body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-
-/* =====================================================
-   MESA
-   ===================================================== */
-
+/* Mesa */
 .soporte {
-  width: min(92vw, 370px);
-  left: 50%;
-  transform: translateX(-50%);
+  width: 370px;
+  left: -6px;
 }
 
 .soporte::before {
-  width: clamp(75px, 24vw, 100px);
+  width: 100px;
   height: 1000px;
-
   left: 50%;
   transform: translateX(-50%);
   top: 18px;
 }
 
 .soporte::after {
-  width: clamp(70px, 23vw, 95px);
+  width: 95px;
   height: 1000px;
-
-  left: 50%;
-  transform: translateX(-50%);
+  left: 85px;
 }
 
-
-/* =====================================================
-   MENSAJE "HAPPY BIRTHDAY"
-   ===================================================== */
-
+/*Mensaje*/
 .happy-birthday {
   top: -100%;
-  left: 50%;
-  transform: translateX(-50%);
-  
-  width: 90vw;
-  max-width: 400px;
-
-  text-align: center;
-
-  font-size: clamp(30px, 10vw, 44px);
+  left: 120px;
 }
 
-
-/* =====================================================
-   OBJETOS DE LA MESA
-   ===================================================== */
-
-/* Portarretrato */
+/*Objetos de la mesa*/
 .portaretrato {
-  transform: scale(clamp(0.60, 20vw / 100, 0.75));
-
-  left: 50%;
+  transform: scale(0.75);
+  left: 65px;
   bottom: -12px;
-
-  transform-origin: bottom center;
 }
 
-
-/* Torta */
 .torta {
-  transform: scale(clamp(0.58, 19vw / 100, 0.75));
-
-  left: 50%;
+  transform: scale(0.75);
+  left: 15px;
   bottom: -20px;
-
-  transform-origin: bottom center;
 }
 
-
-/* Caja de regalo */
 .caja {
-  transform: scale(clamp(0.60, 20vw / 100, 0.75));
-
-  left: 50%;
+  transform: scale(0.75);
+  left: -65px;
   bottom: -26px;
-
-  transform-origin: bottom center;
 }
-
-
-/* =====================================================
-   VELA
-   ===================================================== */
 
 .vela {
-  transform: scale(clamp(0.60, 19vw / 100, 0.75));
-
-  left: 50%;
+  transform: scale(0.75);
   bottom: 94px;
-
-  transform-origin: bottom center;
+  left: 145px;
 }
 
-
-/* Llama */
 .llama {
-  left: 50%;
   bottom: 160px;
-
-  transform: translateX(-50%);
+  left: 142px;
 }
-
-
-/* =====================================================
-   CARTA
-   ===================================================== */
 
 .carta {
-  animation: none;
-
-  /*
-     Se adapta automáticamente:
-     - celulares pequeños → más pequeña
-     - celulares grandes → más grande
-  */
-  transform: scale(clamp(0.68, 85vw / 400, 0.80));
-
+  animation: none; /* Evitar mini zoom */
+  transform: scale(0.8);
   transform-origin: center center;
-
-  margin: 0 auto;
-
-  max-width: 92vw;
+  margin: 0 auto; /* Centrar horizontalmente */
 }
 
-
-/* =====================================================
-   CELULARES PEQUEÑOS
-   ===================================================== */
-
-@media only screen and (max-width: 360px) {
+/* Nuevo media query para pantallas más pequeñas */
+@media only screen and (max-width: 400px) {
 
   .soporte {
-    width: 88vw;
+    width: 300px;
+  }
+
+  .soporte::after {
+    left: 45px;
+    top: 20px;
   }
 
   .happy-birthday {
-    font-size: clamp(28px, 9vw, 34px);
+    font-size: 36px;
+    top: -100%;
+    left: 130px; 
   }
 
   .portaretrato {
-    transform: scale(0.58);
+    transform: scale(0.65);
+    left: 92px;
+    bottom: -16px;
   }
 
   .torta {
-    transform: scale(0.57);
+    transform: scale(0.63);
+    left: 17px;
+    bottom: -27px;
   }
 
   .caja {
-    transform: scale(0.58);
+    transform: scale(0.65);
+    left: -100px;
+    bottom: -35px;
   }
 
   .vela {
-    transform: scale(0.58);
-    bottom: 76px;
+    transform: scale(0.65);
+    bottom: 74px;
+    left: 160px;
   }
 
   .llama {
-    bottom: 137px;
+    bottom: 138px;
+    left: 157px;
   }
 
   .carta {
-    transform: scale(0.66);
-  }
-}
-
-
-/* =====================================================
-   CELULARES MEDIANOS
-   ===================================================== */
-
-@media only screen and (min-width: 361px) and (max-width: 430px) {
-
-  .soporte {
-    width: 90vw;
-  }
-
-  .portaretrato {
-    transform: scale(0.68);
-  }
-
-  .torta {
-    transform: scale(0.67);
-  }
-
-  .caja {
-    transform: scale(0.68);
-  }
-
-  .vela {
-    transform: scale(0.68);
-    bottom: 86px;
-  }
-
-  .llama {
-    bottom: 151px;
-  }
-
-  .carta {
-    transform: scale(0.72);
-  }
-}
-
-
-/* =====================================================
-   CELULARES GRANDES
-   ===================================================== */
-
-@media only screen and (min-width: 431px) and (max-width: 600px) {
-
-  .soporte {
-    width: 90vw;
-    max-width: 430px;
-  }
-
-  .portaretrato {
-    transform: scale(0.73);
-  }
-
-  .torta {
-    transform: scale(0.72);
-  }
-
-  .caja {
-    transform: scale(0.73);
-  }
-
-  .vela {
-    transform: scale(0.73);
-    bottom: 92px;
-  }
-
-  .llama {
-    bottom: 158px;
-  }
-
-  .carta {
-    transform: scale(0.78);
-  }
-}
-
-
-/* =====================================================
-   PANTALLA EN HORIZONTAL
-   ===================================================== */
-
-@media only screen and (max-height: 500px) and (orientation: landscape) {
-
-  .happy-birthday {
-    top: -80%;
-    font-size: clamp(24px, 7vw, 36px);
-  }
-
-  .portaretrato,
-  .torta,
-  .caja {
-    transform: scale(0.55);
-  }
-
-  .vela {
-    transform: scale(0.55);
-    bottom: 70px;
-  }
-
-  .llama {
-    bottom: 125px;
-  }
-
-  .carta {
-    transform: scale(0.60);
+    transform: scale(0.7);
   }
 }
